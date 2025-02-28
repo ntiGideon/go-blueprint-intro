@@ -1,12 +1,9 @@
 package server
 
 import (
-	"net/http"
-	"strconv"
-	"time"
-
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 func (s *Server) RegisterRoutes() http.Handler {
@@ -29,8 +26,6 @@ func (s *Server) RegisterRoutes() http.Handler {
 func (s *Server) HelloWorldHandler(c *gin.Context) {
 	resp := make(map[string]interface{})
 	resp["message"] = "Hello World"
-	resp["status"] = strconv.Itoa(http.StatusOK)
-	resp["date"] = time.Now()
 
 	c.JSON(http.StatusOK, resp)
 }
